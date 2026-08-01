@@ -5,7 +5,8 @@ import os
 def create_bulk_dataset():
     np.random.seed(42)
     n_samples = 10000
-    
+
+
     facilities = ['Boston_Medical_Center', 'Dallas_General_Hospital', 'Houston_Clinical_Network']
     genders = ['M', 'F', 'UNKNOWN', None]
     
