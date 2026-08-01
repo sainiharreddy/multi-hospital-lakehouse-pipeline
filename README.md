@@ -1,4 +1,4 @@
-# multi-hospital-lakehouse-pipeline
+
 # Multi-Hospital Clinical Data Lakehouse Pipeline
 
 An enterprise-grade, distributed data engineering pipeline built using the **Databricks Medallion Architecture** patterns to process, validate, and aggregate high-volume Electronic Health Record (EHR) logs across multi-facility hospital networks.
