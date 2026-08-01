@@ -1,4 +1,3 @@
-
 # Multi-Hospital Clinical Data Lakehouse Pipeline
 
 An enterprise-grade, distributed data engineering pipeline built using the **Databricks Medallion Architecture** patterns to process, validate, and aggregate high-volume Electronic Health Record (EHR) logs across multi-facility hospital networks.
@@ -48,7 +47,7 @@ Houston_Clinical_Network                     2413                               
 ```
 
 ### 💡 Core Engineering Takeaways from the Data:
-1. **Data Quality Quarantine:** Across all three hospital facilities, data quality indices stabilized between **76.6% and 77.1%**. This proves that the data firewall successfully caught, tracked, and isolated the roughly 23% of defective rows (human typing errors, missing codes) without letting anomalies corrupt downstream production assets.
+1. **Data Quality Quarantine:** Across all three hospital facilities, data quality indices stabilized between **76.6% and 77.1%**. This proves that the data firewall successfully caught, tracked, and isolated the faulty rows (human typing errors, missing codes) without letting anomalies corrupt downstream production assets.
 2. **Clinical Signal Extraction:** The average systolic blood pressure across remaining clean records is calculated at **~171 mmHg**. Because the code successfully stripped away impossible outliers (e.g., negative blood pressures or `999` typing errors), it exposed a true, uncorrupted population health trend—a severe Stage 2 Hypertension risk cohort.
 
 ---
@@ -58,3 +57,4 @@ Houston_Clinical_Network                     2413                               
 - **Storage Layer Architecture:** Delta Lake / Columnar Parquet File Core (ACID Compliant)
 - **Data Engineering Core:** Python, Pandas, NumPy, PyArrow
 - **Architectural Layout:** Medallion Staging Pattern (Bronze → Silver → Gold)
+
