@@ -1,0 +1,27 @@
+import pandas as pd
+import numpy as np
+import os
+
+def create_bulk_dataset():
+    np.random.seed(42)
+    n_samples = 10000
+    
+    facilities = ['Boston_Medical_Center', 'Dallas_General_Hospital', 'Houston_Clinical_Network']
+    genders = ['M', 'F', 'UNKNOWN', None]
+    
+    data = {
+        'record_id': [f"REC-{i:06d}" for i in range(n_samples)],
+        'facility_name': np.random.choice(facilities, size=n_samples, p=[0.4, 0.35, 0.25]),
+        'patient_age': np.random.choice([25, 45, 72, -10, 150, 32], size=n_samples, p=[0.3, 0.3, 0.2, 0.05, 0.05, 0.1]),
+        'administrative_gender': np.random.choice(genders, size=n_samples, p=[0.45, 0.45, 0.05, 0.05]),
+        'systolic_blood_pressure': np.random.choice([120, 140, 160, 999, 110], size=n_samples, p=[0.5, 0.25, 0.1, 0.05, 0.1]),
+        'icd10_diagnostic_code': np.random.choice(['I10', 'E11.9', 'M81.0', 'MALFORMED', None], size=n_samples, p=[0.35, 0.35, 0.2, 0.05, 0.05])
+    }
+    
+    df = pd.DataFrame(data)
+    os.makedirs("data", exist_ok=True)
+    df.to_csv("data/raw_bulk_ehr_landing.csv", index=False)
+    print("Successfully generated 10,000 messy cross-facility records in data/raw_bulk_ehr_landing.csv")
+
+if __name__ == "__main__":
+    create_bulk_dataset()
